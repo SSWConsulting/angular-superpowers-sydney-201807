@@ -28,11 +28,8 @@ export class CompanyListComponent implements OnInit {
     this.companies$ = this.companyService.getCompanies();
   }
 
-  deleteCompany(id: number){
-    this.companyService.deleteCompany(id)
-    .subscribe(c => {
-      this.initCompanies();
-    })
+  deleteCompany(id: number) {
+    this.companyService.deleteCompany(id);
   }
 
 
