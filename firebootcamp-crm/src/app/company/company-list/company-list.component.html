@@ -1,6 +1,10 @@
 
+<h1>
+  Companies
+</h1>
+<button class="btn btn-success float-right"> Add </button>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
     <th>name</th>
@@ -14,7 +18,10 @@
       <td>{{ company.name }}</td>
       <td>{{ company.phone }}</td>
       <td>{{ company.email }} </td>
-      <td></td>
+      <td class="company-btn-row">
+        <button class="btn btn-default"> Edit </button>
+        <button class="btn btn-danger"> Delete </button>
+      </td>
     </tr>
   </tbody>
 </table>
