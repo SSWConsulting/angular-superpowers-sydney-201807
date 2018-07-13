@@ -22,7 +22,7 @@ export class CompanyService {
     );
   }
 
-  errorHandler(): Observable<any>{
+  errorHandler(): Observable<any> {
     console.error('MAKE A BETTER ERROR HANLDLER');
     return new Observable<any>();
 
