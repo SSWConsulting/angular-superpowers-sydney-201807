@@ -4,7 +4,7 @@ import { Company } from 'src/app/company/company';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'fbc-company-table',
