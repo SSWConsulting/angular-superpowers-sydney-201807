@@ -1,18 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Company } from 'src/app/company/company';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
-  getCompanies() : Company[]{
-    return [
-      { name: 'SSW Sydney', email: 'syd@ssw.com.au', phone: 12345 },
-      { name: 'SSW Bne', email: 'bne@ssw.com.au', phone: 1235545 },
-      { name: 'SSW Melbourne', email: 'mel@ssw.com.au', phone: 12352545 }
-    ];
+  API_BASE = 'http://firebootcamp-crm-api.azurewebsites.net/api';
+
+  getCompanies(): Observable<Company[]> {
+    return this.httpClient.get<Company[]>(`${this.API_BASE}/company`)
+    .pipe(
+      catchError(this.errorHandler)
+    );
+  }
+
+  errorHandler(): Observable<any>{
+    console.error('MAKE A BETTER ERROR HANLDLER');
+    return new Observable<any>();
+
   }
 }
